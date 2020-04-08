@@ -1,10 +1,10 @@
 <div class="container">
   <div class="ui-g">
     <div class="ui-g-12">
-      <h1>Lancamentos</h1>
+      <h1>Pessoas</h1>
     </div>
     <div class="ui-g-12 ui-fluid">
-      <label>Descrição</label>
+      <label>Nome</label>
       <input pInputText type="text" >
     </div>
     <div class="ui-g-12">
@@ -20,24 +20,22 @@
 
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-table [value]="lancamentos" [paginator]="true" [rows]="5" [first]="primeriaPagina" [responsive]="true">
+      <p-table [value]="pessoas" [paginator]="true" [rows]="5" [first]="primeriaPagina" [responsive]="true">
         <ng-template pTemplate="header">
           <tr>
-            <th>Pessoa</th>
-            <th>Descrição</th>
-            <th class="col-data">Vencimento</th>
-            <th class="col-data">Pagamento</th>
-            <th class="col-valor-head">Valor</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th class="col-data">Estado</th>
+            <th class="col-data">Status</th>
             <th class="col-acoes"></th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-lancamento>
+        <ng-template pTemplate="body" let-pessoa>
           <tr>
-            <td>{{lancamento.pessoa}}</td>
-            <td>{{lancamento.descricao}}</td>
-            <td>{{lancamento.dataVencimento}}</td>
-            <td>{{lancamento.dataPagamento}}</td>
-            <td class="col-valor" [style.color]="lancamento.tipo === 'DESPESA' ? 'red' : 'blue'">{{lancamento.valor}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.cidade}}</td>
+            <td>{{pessoa.estado}}</td>
+            <td>{{pessoa.status}}</td>
             <td class="col-acoes">
               <a pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
               <a pButton type="button" icon="fa fa-trash"  pTooltip="Excluir" tooltipPosition="bottom"></a>

@@ -9,6 +9,10 @@ label{
   font-weight: bold;
 }
 
+label::after{
+  content: ":";
+}
+
 a span{
   color: #ffffff;
 }
