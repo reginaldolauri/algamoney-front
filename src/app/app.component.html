@@ -20,14 +20,14 @@
 
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-table [value]="lancamentos">
+      <p-table [value]="lancamentos" [paginator]="true" [rows]="2" [first]="primeriaPagina">
         <ng-template pTemplate="header">
           <tr>
             <th>Pessoa</th>
             <th>Descrição</th>
             <th class="col-data">Vencimento</th>
             <th class="col-data">Pagamento</th>
-            <th class="col-valor-head"></th>
+            <th class="col-valor-head">Valor</th>
             <th class="col-acoes"></th>
           </tr>
         </ng-template>

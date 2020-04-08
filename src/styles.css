@@ -43,3 +43,7 @@ body .ui-button.ui-button-icon-only {
   width: 120px;
   text-align: center;
 }
+
+.ui-paginator .ui-paginator-icon{
+  color: #007ad9;
+}
