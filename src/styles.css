@@ -9,6 +9,15 @@ label{
   font-weight: bold;
 }
 
+a span{
+  color: #ffffff;
+}
+
+body .ui-button.ui-button-icon-only {
+  margin: 0 8px 0 0;
+  left: 5px;
+}
+
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
@@ -23,6 +32,11 @@ label{
 
 .col-valor{
   text-align: right;
+}
+
+.col-acoes{
+  width: 110px;
+  text-align: center;
 }
 
 .col-data{
