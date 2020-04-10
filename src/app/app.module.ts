@@ -1,3 +1,5 @@
+import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
+import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -20,36 +22,32 @@ import {MessageModule} from 'primeng/message';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
-import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
-import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
-import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
-import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
 
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LancamentosPesquisaComponent,
     NavbarComponent,
     PessoasPesquisaComponent,
-    LancamentoCadastroComponent,
     PessoaCadastroComponent,
-    MessageComponent,
-    LancamentosGridComponent,
-    PessoasGridComponent
+    PessoasGridComponent,
+    MessageComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+
+    LancamentosModule,
+
     InputTextModule,
     InputTextareaModule,
     ButtonModule,

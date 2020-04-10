@@ -16,8 +16,8 @@
         [showIcon]=false name="dataVencimento"
         ngModel #dataVencimento="ngModel" required></p-calendar>
 
-        <app-message [control]="dataVencimento" error="required"
-          errorText="Informe a data de vencimento."></app-message>
+       <!-- <app-message [control]="dataVencimento" error="required"
+          errorText="Informe a data de vencimento."></app-message>-->
 
       </div>
 
@@ -27,8 +27,8 @@
           [inline]="false" [readonlyInput]="false"
           [showIcon]=false name="dataRecebimento"
           ngModel #dataRecebimento="ngModel" required></p-calendar>
-          <app-message [control]="dataRecebimento" error="required"
-            errorText="Informe a data de pagamento."></app-message>
+         <!--  <app-message [control]="dataRecebimento" error="required"
+            errorText="Informe a data de pagamento."></app-message> -->
       </div>
 
       <div class="ui-g-12  ui-md-9 ui-fluid">
@@ -36,11 +36,11 @@
         <input pInputText type="text" name="descricao"
         ngModel #descricao="ngModel" required minlength="5">
 
-        <app-message [control]="descricao" error="required"
+        <!-- <app-message [control]="descricao" error="required"
           errorText="Informe uma descricao"></app-message>
 
         <app-message [control]="descricao" error="minlength"
-          errorText="O mínimo de caracteres é {{descricao.errors?.minlength?.requiredLength}}."></app-message>
+          errorText="O mínimo de caracteres é {{descricao.errors?.minlength?.requiredLength}}."></app-message> -->
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
@@ -50,8 +50,8 @@
           pInputText type="text" placeholder="0,00"
           name="valor"
           ngModel #valor="ngModel" required>
-          <app-message [control]="valor" error="required"
-          errorText="Informe o valor do lançamento."></app-message>
+          <!-- <app-message [control]="valor" error="required"
+          errorText="Informe o valor do lançamento."></app-message>-->
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
@@ -60,8 +60,8 @@
           placeholder="Selecione" name="categoria"
           ngModel #categoria="ngModel" required></p-dropdown>
 
-          <app-message [control]="categoria" error="required"
-          errorText="Selecione uma categoria."></app-message>
+          <!-- <app-message [control]="categoria" error="required"
+          errorText="Selecione uma categoria."></app-message>-->
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
@@ -70,8 +70,8 @@
           placeholder="Selecione"
           [filter]="true" name="pessoa"
           ngModel #pessoa="ngModel" required></p-dropdown>
-        <app-message [control]="pessoa" error="required"
-        errorText="Selecione uma pessoa."></app-message>
+        <!-- <app-message [control]="pessoa" error="required"
+        errorText="Selecione uma pessoa."></app-message>-->
       </div>
 
       <div class="ui-g-12 ui-fluid">
