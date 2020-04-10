@@ -13,6 +13,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {CalendarModule} from 'primeng/calendar';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {DropdownModule} from 'primeng/dropdown';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
@@ -50,7 +51,8 @@ registerLocaleData(localePt);
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    InputMaskModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent]
