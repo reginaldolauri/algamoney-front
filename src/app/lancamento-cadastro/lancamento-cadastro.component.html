@@ -1,6 +1,5 @@
 <div class="container">
-  <form>
-
+  <form autocomplete="off">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Novo Lancamento</h1>
@@ -25,15 +24,20 @@
       </div>
 
       <div class="ui-g-12  ui-md-9 ui-fluid">
-        <label>Descricao</label>
-        <input pInputText type="text">
+        <label>Descricao {{descricao.errors | json}}</label>
+        <input pInputText type="text" name="descricao"
+          ngModel #descricao="ngModel" required minlength="5">
+        <p-message severity="error" text="Informe uma descrição." *ngIf="descricao.hasError('required') && descricao.dirty"></p-message>
+        <p-message severity="error" text="O mínimo de caracteres é {{descricao.errors.minlength.requiredLength}}. Você digitou somente {{descricao.errors.minlength.actualLength}} caractere(s)" *ngIf="descricao.hasError('minlength') && descricao.dirty"></p-message>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Valor</label>
         <input currencyMask
           [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false }"
-          pInputText type="text" placeholder="0,00">
+          pInputText type="text" placeholder="0,00"
+          name="valor"
+          ngModel>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
