@@ -13,8 +13,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {CalendarModule} from 'primeng/calendar';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {DropdownModule} from 'primeng/dropdown';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
+
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
@@ -32,13 +31,10 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     ButtonModule,
     TableModule,
     TooltipModule,
-    FormsModule,
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule,
-    MessagesModule,
-    MessageModule
+    CurrencyMaskModule
   ],
   exports: [
     LancamentoCadastroComponent,
