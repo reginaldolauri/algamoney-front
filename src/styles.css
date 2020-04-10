@@ -45,6 +45,16 @@ body .ui-button {
   margin: 0 10px 0 0;
 }
 
+body .ui-message.ui-message-error{
+  background-color: red;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+body .ui-message.ui-message-error .ui-message-icon {
+  color: #ffffff;
+}
+
 @media (min-width: 1200px) {
   .container {
     width: 1170px;

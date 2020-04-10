@@ -24,11 +24,15 @@
       </div>
 
       <div class="ui-g-12  ui-md-9 ui-fluid">
-        <label>Descricao {{descricao.errors | json}}</label>
+        <label>Descricao</label>
         <input pInputText type="text" name="descricao"
-          ngModel #descricao="ngModel" required minlength="5">
-        <p-message severity="error" text="Informe uma descrição." *ngIf="descricao.hasError('required') && descricao.dirty"></p-message>
-        <p-message severity="error" text="O mínimo de caracteres é {{descricao.errors.minlength.requiredLength}}. Você digitou somente {{descricao.errors.minlength.actualLength}} caractere(s)" *ngIf="descricao.hasError('minlength') && descricao.dirty"></p-message>
+        ngModel #descricao="ngModel" required minlength="5">
+
+        <app-message [control]="descricao" error="required"
+          errorText="Informe uma descricao"></app-message>
+
+        <app-message [control]="descricao" error="minlength"
+          errorText="O mínimo de caracteres é {{descricao.errors?.minlength?.requiredLength}}."></app-message>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">

@@ -28,6 +28,7 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { MessageComponent } from './message/message.component';
 
 registerLocaleData(localePt);
 
@@ -38,7 +39,8 @@ registerLocaleData(localePt);
     NavbarComponent,
     PessoasPesquisaComponent,
     LancamentoCadastroComponent,
-    PessoaCadastroComponent
+    PessoaCadastroComponent,
+    MessageComponent
   ],
   imports: [
     BrowserAnimationsModule,
