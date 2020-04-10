@@ -4,6 +4,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
@@ -22,7 +23,6 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
-import { FormsModule } from '@angular/forms';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
