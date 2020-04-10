@@ -6,14 +6,22 @@
         <h1>Novo Lancamento</h1>
       </div>
 
+      <div class="ui-g-12">
+        <p-selectButton [options]="tipos" #tipo ></p-selectButton>
+      </div>
+
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Vencimento</label>
-        <input pInputText type="text">
+        <p-calendar dateFormat="dd/mm/yy"
+        [inline]="false" [readonlyInput]="true"
+        [showIcon]=false></p-calendar>
       </div>
 
       <div class="ui-g-6  ui-md-3 ui-fluid">
-        <label>Recebimento</label>
-        <input pInputText type="text">
+        <label>{{tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
+        <p-calendar dateFormat="dd/mm/yy"
+        [inline]="false" [readonlyInput]="true"
+        [showIcon]=false></p-calendar>
       </div>
 
       <div class="ui-g-12  ui-md-9 ui-fluid">
@@ -28,12 +36,18 @@
 
       <div class="ui-g-12  ui-md-6 ui-fluid">
         <label>Categoria</label>
-        <input pInputText type="text">
+        <p-dropdown [options]="categorias"
+          [autoWidth]="false"
+          placeholder="Selecione" #categoria></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Pessoa</label>
-        <input pInputText type="text" >
+        <p-dropdown [options]="pessoas"
+          [autoWidth]="false"
+          placeholder="Selecione"
+          [filter]="true"
+          #pessoa></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-fluid">
@@ -44,7 +58,7 @@
       <div class="ui-g-12">
         <button pButton type="submit" label="Salvar"></button>
         <button pButton type="button" label="Novo" class="ui-button-secondary"></button>
-        <a href="javascript:;">Voltar para a pesquisa</a>
+        <a class="" href="javascript:;">Voltar para a pesquisa</a>
       </div>
 
     </div>

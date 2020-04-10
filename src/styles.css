@@ -13,6 +13,15 @@ label::after{
   content: ":";
 }
 
+label.ui-dropdown-label::after {
+  content: none;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
 a span{
   color: #ffffff;
 }
@@ -20,6 +29,16 @@ a span{
 body .ui-button.ui-button-icon-only {
   margin: 0 8px 0 0;
   left: 5px;
+}
+
+.ui-datepicker .ui-datepicker-next span,
+.ui-datepicker .ui-datepicker-prev span,
+body .ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+  color: #007ad9;
+}
+
+body .ui-datepicker .ui-datepicker-header{
+  background-color: #f4f4f4;
 }
 
 @media (min-width: 1200px) {
