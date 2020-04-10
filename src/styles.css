@@ -41,6 +41,10 @@ body .ui-datepicker .ui-datepicker-header{
   background-color: #f4f4f4;
 }
 
+body .ui-button {
+  margin: 0 10px 0 0;
+}
+
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
