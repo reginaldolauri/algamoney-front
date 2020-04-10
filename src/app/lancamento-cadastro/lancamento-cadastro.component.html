@@ -31,20 +31,20 @@
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Valor</label>
-        <input pInputText type="text" placeholder="0,00">
+        <input currencyMask
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false }"
+          pInputText type="text" placeholder="0,00">
       </div>
 
       <div class="ui-g-12  ui-md-6 ui-fluid">
         <label>Categoria</label>
         <p-dropdown [options]="categorias"
-          [autoWidth]="false"
           placeholder="Selecione" #categoria></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Pessoa</label>
         <p-dropdown [options]="pessoas"
-          [autoWidth]="false"
           placeholder="Selecione"
           [filter]="true"
           #pessoa></p-dropdown>
