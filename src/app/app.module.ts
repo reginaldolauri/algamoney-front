@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localePt);
 
@@ -23,7 +24,8 @@ registerLocaleData(localePt);
     AppRoutingModule,
     LancamentosModule,
     PessoasModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent]
