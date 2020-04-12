@@ -10,7 +10,7 @@ import { LazyLoadEvent } from 'primeng/api/public_api';
 export class LancamentosPesquisaComponent implements OnInit {
   totalRegistros = 0;
   filtro = new LancamentoFiltro();
-  lancamentos: object = [];
+  lancamentos = [];
 
   constructor(
     private lancamentoService: LancamentoService

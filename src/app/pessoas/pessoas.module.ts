@@ -10,16 +10,13 @@ import {TooltipModule} from 'primeng/tooltip';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputMaskModule} from 'primeng/inputmask';
 
-
-import { PessoasGridComponent } from './pessoas-grid/pessoas-grid.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 
 @NgModule({
   declarations: [
     PessoasPesquisaComponent,
-    PessoaCadastroComponent,
-    PessoasGridComponent
+    PessoaCadastroComponent
   ],
   imports: [
     CommonModule,
