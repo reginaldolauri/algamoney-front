@@ -42,4 +42,16 @@ export class PessoaService {
         return resultado;
       });
   }
+
+  listarTodas(): Promise<any> {
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+     });
+    return this.http.get(this.pessoasUrl, { headers })
+            .toPromise()
+            .then((response: any) => {
+              return response.content;
+            });
+  }
 }
