@@ -1,23 +1,14 @@
 import { CoreModule } from './core/core.module';
-import { PessoasModule } from './pessoas/pessoas.module';
-import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import localePt from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-
-import { ToastyModule } from 'ng2-toasty';
-
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
-
-registerLocaleData(localePt);
+import { LancamentosModule } from './lancamentos/lancamentos.module';
+import { PessoasModule } from './pessoas/pessoas.module';
 
 @NgModule({
   declarations: [
@@ -27,21 +18,14 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
-    ToastyModule.forRoot(),
-
-    ConfirmDialogModule,
+    CoreModule,
 
     LancamentosModule,
     PessoasModule,
-    CoreModule,
-    HttpClientModule
   ],
-
-  providers: [
-    { provide: LOCALE_ID, useValue: "pt-BR" },
-    ConfirmationService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
