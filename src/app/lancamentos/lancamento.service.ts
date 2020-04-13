@@ -25,7 +25,7 @@ export class LancamentoService {
     let params = new HttpParams();
     const headers = new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
     });
 
     params = params.append('page', filtro.pagina.toString());
@@ -52,8 +52,18 @@ export class LancamentoService {
         const resultado = {
           lancamentos,
           total: response.totalElements
-        }
+        };
         return resultado;
       });
+  }
+
+  excluir(codigo: number): Promise<void>{
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    });
+    return this.http.delete(`${this.lancamentosUrl}/${codigo}`, { headers })
+                .toPromise()
+                .then(() => null);
   }
 }

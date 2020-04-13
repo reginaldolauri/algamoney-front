@@ -12,6 +12,8 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ToastyModule } from 'ng2-toasty';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -22,6 +24,9 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+
+    ToastyModule.forRoot(),
+
     LancamentosModule,
     PessoasModule,
     CoreModule,
