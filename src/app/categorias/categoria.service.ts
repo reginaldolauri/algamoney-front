@@ -20,7 +20,7 @@ export class CategoriaService {
     return this.http.get(this.categoriasUrl, { headers })
             .toPromise()
             .then((response: any) => {
-              return response.content;
+              return response;
     });
   }
 }
