@@ -20,7 +20,7 @@
         emptyMessage="Nenhuma Pessoa encontrada."
         [paginator]="true" [rows]="filtro.itensPorPagina"
         [lazy]="true" [totalRecords]="totalRegistros"
-        (onLazyLoad)="aoMudarPagina($event)" >
+        (onLazyLoad)="aoMudarPagina($event)" #pessoasGrid>
         <ng-template pTemplate="header">
           <tr>
             <th>Nome</th>
@@ -38,7 +38,7 @@
             <td><a href="#" [pTooltip]="pessoa.status ? 'Inativar' : 'Ativar'" tooltipPosition="bottom">{{pessoa.status ? 'Ativo' : 'Inativo'}}</a> </td>
             <td class="col-acoes">
               <a pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
-              <a pButton type="button" icon="fa fa-trash"  pTooltip="Excluir" tooltipPosition="bottom"></a>
+              <button pButton type="button" icon="fa fa-trash"  pTooltip="Excluir" tooltipPosition="bottom" (click)="confirmarExclusao(pessoa)"></button>
             </td>
         </tr>
         </ng-template>
