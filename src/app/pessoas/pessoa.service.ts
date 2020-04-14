@@ -64,4 +64,14 @@ export class PessoaService {
                 .toPromise()
                 .then(() => null);
   }
+
+  ativarInativar(ativo: boolean, codigo: number): Promise<void> {
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+      });
+    return this.http.put(`${this.pessoasUrl}/${codigo}/ativo`, ativo, { headers })
+                .toPromise()
+                .then(() => null);
+  }
 }

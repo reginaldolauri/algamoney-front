@@ -58,7 +58,17 @@ export class PessoasPesquisaComponent implements OnInit{
         .then(() => {
           this.pesquisar();
           this.grid.first = 0;
-          this.toasty.success(`A pessoa ${pessoa.nome} de codigo ${pessoa.codigo} foi excluída com sucesso.`)
+          this.toasty.success(`A pessoa ${pessoa.nome} de codigo ${pessoa.codigo} foi excluída com sucesso.`);
+        })
+        .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  ativarInativar(pessoa: any){
+    const novoStatus = !pessoa.ativo;
+    this.pessoaService.ativarInativar(novoStatus, pessoa.codigo)
+        .then(() => {
+          this.pesquisar();
+          this.toasty.success(`O status de ${pessoa.nome} foi alterado para ${novoStatus ? 'Ativo' : 'Inativo'}`);
         })
         .catch(erro => this.errorHandler.handle(erro));
   }
