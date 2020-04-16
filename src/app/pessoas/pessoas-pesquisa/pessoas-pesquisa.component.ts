@@ -1,3 +1,4 @@
+import { Pessoa } from './../../core/model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ToastyService } from 'ng2-toasty';

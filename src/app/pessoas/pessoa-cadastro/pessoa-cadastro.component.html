@@ -1,5 +1,5 @@
 <div class="container">
-  <form autocomplete="off" #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
+  <form autocomplete="off" #pessoaForm="ngForm" (ngSubmit)="adicionar(pessoaForm)">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Nova Pessoa</h1>
@@ -7,7 +7,7 @@
       <div class="ui-g-12 ui-fluid">
         <label>Nome</label>
         <input pInputText type="text"
-          name="nome" ngModel #nome="ngModel" required minlength="5">
+          name="nome" [(ngModel)]="pessoa.nome" required minlength="5" #nome="ngModel">
         <app-message [control]="nome" error="required"
               errorText="O campo nome é obrigatório."></app-message>
         <app-message [control]="nome" error="minlength"
@@ -17,7 +17,7 @@
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label>Logradouro</label>
         <input pInputText type="text"
-        name="logradouro" ngModel #logradouro="ngModel" required minlength="5">
+        name="logradouro" [(ngModel)]="pessoa.endereco.logradouro" #logradouro="ngModel" required minlength="5">
         <app-message [control]="logradouro" error="required"
         errorText="O campo logradouro é obrigatório."></app-message>
         <app-message [control]="logradouro" error="minlength"
@@ -27,7 +27,7 @@
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Número</label>
         <input pInputText type="text"
-          name="numero" ngModel #numero="ngModel" required>
+          name="numero" [(ngModel)]="pessoa.endereco.numero" #numero="ngModel" required>
         <app-message [control]="numero" error="required"
               errorText="O campo numero é obrigatório."></app-message>
       </div>
@@ -35,13 +35,13 @@
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label>Complemento</label>
         <input pInputText type="text"
-          name="complemento" ngModel #complemento="ngModel">
+          name="complemento" [(ngModel)]="pessoa.endereco.complemento" #complemento="ngModel">
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label>Bairro</label>
         <input pInputText type="text"
-          name="bairro" ngModel #bairro="ngModel" required>
+          name="bairro" [(ngModel)]="pessoa.endereco.bairro" #bairro="ngModel" required>
         <app-message [control]="bairro" error="required"
               errorText="O campo bairro é obrigatório."></app-message>
       </div>
@@ -49,7 +49,7 @@
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label>CEP</label>
         <p-inputMask mask="99.999-999"
-          name="cep" ngModel #cep="ngModel" required></p-inputMask>
+          name="cep" [(ngModel)]="pessoa.endereco.cep" #cep="ngModel" required></p-inputMask>
         <app-message [control]="cep" error="required"
               errorText="O campo cep é obrigatório."></app-message>
       </div>
@@ -57,7 +57,7 @@
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Cidade</label>
         <input pInputText type="text"
-        name="cidade" ngModel #cidade="ngModel" required>
+        name="cidade" [(ngModel)]="pessoa.endereco.cidade" #cidade="ngModel" required>
         <app-message [control]="cidade" error="required"
               errorText="O campo cidade é obrigatório."></app-message>
       </div>
@@ -65,7 +65,7 @@
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Estado</label>
         <input pInputText type="text"
-          name="estado" ngModel #estado="ngModel" required>
+          name="estado" [(ngModel)]="pessoa.endereco.estado" #estado="ngModel" required>
         <app-message [control]="estado" error="required"
               errorText="O campo estado é obrigatório."></app-message>
       </div>
