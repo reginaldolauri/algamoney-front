@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { ErrorHandlerService } from './error-handler.service';
 import { NgModule, LOCALE_ID  } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +19,8 @@ registerLocaleData(localePt);
   imports: [
     CommonModule,
     ToastyModule.forRoot(),
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,

@@ -1,4 +1,4 @@
-import { Lancamento } from 'src/app/core/model';
+import { Lancamento } from './../core/model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import * as moment from 'moment';
@@ -77,4 +77,44 @@ export class LancamentoService {
                .toPromise()
                .then((response: Lancamento) => response);
   }
+
+  atualizar(lancamento: Lancamento): Promise<Lancamento> {
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    });
+    return this.http.put(`${this.lancamentosUrl}/${lancamento.codigo}`, JSON.stringify(lancamento), { headers })
+               .toPromise()
+               .then((lancamentoAlterado: Lancamento) => {
+                this.converterStringParaDatas([lancamentoAlterado]);
+                return lancamentoAlterado;
+               });
+  }
+
+  buscarPorCodigo(codigo: number): Promise<Lancamento> {
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+    });
+    return this.http.get(`${this.lancamentosUrl}/${codigo}`, { headers })
+               .toPromise()
+               .then((lancamento: Lancamento) => {
+                 this.converterStringParaDatas([lancamento]);
+                 return lancamento;
+                });
+  }
+
+  private converterStringParaDatas(lancamentos: Lancamento[]) {
+    for (const lancamento of lancamentos) {
+      if (lancamento
+          && lancamento.dataPagamento) {
+            lancamento.dataPagamento = moment(lancamento.dataPagamento, 'YYYY-MM-DD').toDate();
+      }
+      if (lancamento
+          && lancamento.dataVencimento) {
+            lancamento.dataVencimento = moment(lancamento.dataVencimento, 'YYYY-MM-DD').toDate();
+      }
+    }
+  }
+
 }

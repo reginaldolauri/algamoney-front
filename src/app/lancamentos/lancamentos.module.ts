@@ -16,6 +16,7 @@ import {DropdownModule} from 'primeng/dropdown';
 
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     SelectButtonModule,
     DropdownModule,
     CurrencyMaskModule,
-
+    RouterModule,
     SharedModule
   ],
   exports: [

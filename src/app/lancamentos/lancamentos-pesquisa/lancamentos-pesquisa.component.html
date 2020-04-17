@@ -48,7 +48,8 @@
             <td>{{lancamento.dataPagamento | date:'dd/MM/y'}}</td>
             <td class="col-valor" [style.color]="lancamento.tipo === 'DESPESA' ? 'red' : 'blue'">{{lancamento.valor | currency:'BRL':'symbol':'1.2-2':'pt'}}</td>
             <td class="col-acoes">
-              <a pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
+              <a pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"
+              [routerLink]="['/lancamentos', lancamento.codigo]"></a>
               <button pButton type="button" icon="fa fa-trash"
                 pTooltip="Excluir" tooltipPosition="bottom"
                 (click)="confirmarExclusao(lancamento)"></button>
@@ -58,7 +59,7 @@
       </p-table>
     </div>
     <div class="ui-g-12">
-      <a pButton type="button" label="Novo Lançamento" ></a>
+      <a pButton type="button" label="Novo Lançamento" routerLink="/lancamentos/novo" ></a>
     </div>
   </div>
 </div>
