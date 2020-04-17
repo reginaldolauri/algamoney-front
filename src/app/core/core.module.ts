@@ -11,11 +11,13 @@ import { ToastyModule } from 'ng2-toasty';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { Title } from '@angular/platform-browser';
 
 registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, PaginaNaoEncontradaComponent],
   imports: [
     CommonModule,
     ToastyModule.forRoot(),
@@ -30,7 +32,8 @@ registerLocaleData(localePt);
   providers:[
     ErrorHandlerService,
     { provide: LOCALE_ID, useValue: "pt-BR" },
-    ConfirmationService
+    ConfirmationService,
+    Title
   ]
 })
 export class CoreModule { }

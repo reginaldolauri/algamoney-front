@@ -4,6 +4,7 @@ import { LazyLoadEvent } from 'primeng/api/public_api';
 import { ToastyService } from 'ng2-toasty';
 import { ConfirmationService } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -21,10 +22,13 @@ export class LancamentosPesquisaComponent implements OnInit {
     private lancamentoService: LancamentoService,
     private toasty: ToastyService,
     private confimation: ConfirmationService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private tile: Title
   ){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.tile.setTitle('Pesquisa de lançamentos');
+  }
 
   pesquisar(pagina = 0){
     this.filtro.pagina = pagina;

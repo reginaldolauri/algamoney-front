@@ -38,9 +38,6 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     SharedModule
   ],
-  exports: [
-    LancamentoCadastroComponent,
-    LancamentosPesquisaComponent
-  ]
+  exports: []
 })
 export class LancamentosModule { }
