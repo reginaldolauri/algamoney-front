@@ -76,12 +76,32 @@ export class PessoaService {
       .then(() => null);
     }
 
-    adicionar(pessoa: Pessoa): Promise<Pessoa> {
+  adicionar(pessoa: Pessoa): Promise<Pessoa> {
+    const headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+      });
+    return this.http.post(this.pessoasUrl, pessoa, { headers })
+              .toPromise()
+              .then((respose: Pessoa) => respose);
+  }
+
+  atualizar(pessoa: Pessoa): Promise<Pessoa> {
       const headers = new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
         });
-      return this.http.post(this.pessoasUrl, pessoa, { headers })
+      return this.http.put(`${this.pessoasUrl}/${pessoa.codigo}`, pessoa, { headers })
+               .toPromise()
+               .then((respose: Pessoa) => respose);
+  }
+
+  bucarPorCodigo(codigo: number): Promise<Pessoa> {
+      const headers = new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
+        });
+      return this.http.get(`${this.pessoasUrl}/${codigo}`, { headers })
                .toPromise()
                .then((respose: Pessoa) => respose);
   }

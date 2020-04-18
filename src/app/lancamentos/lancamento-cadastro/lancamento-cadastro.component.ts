@@ -58,8 +58,6 @@ export class LancamentoCadastroComponent implements OnInit {
     this.lancamentoService.adicionar(this.lancamento)
         .then((lancamentoAdicionado) => {
           this.toasty.success('Lançamento adicionado com sucesso!');
-          //form.reset();
-          //this.lancamento = new Lancamento();
           this.router.navigate(['/lancamentos', lancamentoAdicionado.codigo]);
         })
         .catch(erro => this.errorHandler.handle(erro));

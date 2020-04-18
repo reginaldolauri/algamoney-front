@@ -1,3 +1,4 @@
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
@@ -16,7 +17,6 @@ import {DropdownModule} from 'primeng/dropdown';
 
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,17 +26,19 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
+
     InputTextModule,
-    InputTextareaModule,
     ButtonModule,
     TableModule,
     TooltipModule,
+    InputTextareaModule,
     CalendarModule,
     SelectButtonModule,
     DropdownModule,
     CurrencyMaskModule,
-    RouterModule,
-    SharedModule
+
+    SharedModule,
+    LancamentosRoutingModule
   ],
   exports: []
 })

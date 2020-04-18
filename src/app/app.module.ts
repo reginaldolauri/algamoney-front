@@ -15,13 +15,14 @@ import { PessoasModule } from './pessoas/pessoas.module';
     AppComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+
     CoreModule,
-    LancamentosModule,
     PessoasModule,
+    LancamentosModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

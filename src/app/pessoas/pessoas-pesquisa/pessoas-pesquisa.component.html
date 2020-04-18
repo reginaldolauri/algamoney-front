@@ -39,7 +39,8 @@
                    tooltipPosition="bottom"
                    (click)="ativarInativar(pessoa)">{{pessoa.ativo ? 'Ativo' : 'Inativo'}}</a> </td>
             <td class="col-acoes">
-              <a pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
+              <a pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="bottom"
+                [routerLink]="['/pessoas', pessoa.codigo]"></a>
               <button pButton type="button" icon="fa fa-trash"  pTooltip="Excluir" tooltipPosition="bottom" (click)="confirmarExclusao(pessoa)"></button>
             </td>
         </tr>
@@ -47,7 +48,7 @@
       </p-table>
     </div>
     <div class="ui-g-12">
-      <a pButton type="button" label="Novo Lançamento" ></a>
+      <a pButton type="button" label="Nova Pessoa" routerLink="/pessoas/novo"></a>
     </div>
   </div>
 </div>
