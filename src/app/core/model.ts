@@ -31,8 +31,3 @@ export class Lancamento {
   categoria = new Categoria();
   pessoa = new Pessoa();
 }
-
-export class Login {
-  email: string;
-  senha: string;
-}

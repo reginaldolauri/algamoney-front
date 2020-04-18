@@ -1,3 +1,4 @@
+import { AuthService } from './../seguranca/auth.service';
 import { RouterModule } from '@angular/router';
 import { ErrorHandlerService } from './error-handler.service';
 import { NgModule, LOCALE_ID  } from '@angular/core';
@@ -33,7 +34,8 @@ registerLocaleData(localePt);
     ErrorHandlerService,
     { provide: LOCALE_ID, useValue: "pt-BR" },
     ConfirmationService,
-    Title
+    Title,
+    AuthService
   ]
 })
 export class CoreModule { }
