@@ -6,19 +6,19 @@
       </div>
       <div class="ui-g-12 ui-fluid">
         <input pInputText type="text" placeholder="E-mail" name="email"
-          ngModel required #email="ngModel">
+          [(ngModel)]="login.usuario" required #email="ngModel">
         <app-message [control]="email" error="required"
           errorText="E-mail é um campo obrigatório."></app-message>
       </div>
       <div class="ui-g-12 ui-fluid">
         <input pInputText type="password" placeholder="Senha" name="senha"
-        ngModel required #senha="ngModel">
+        [(ngModel)]="login.senha" required #senha="ngModel">
         <app-message [control]="senha" error="required"
           errorText="Senha é um campo obrigatório."></app-message>
       </div>
       <div class="ui-g-12 ui-fluid">
         <button type="submit" pButton label="Login" [disabled]="!loginForm.valid"
-        (click)="logar(email.value, senha.value)"></button>
+        (click)="logar(loginForm);"></button>
       </div>
     </form>
   </div>
