@@ -1,3 +1,4 @@
+import { SegurancaModule } from './seguranca/seguranca/seguranca.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -12,7 +13,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +23,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
     CoreModule,
     PessoasModule,
     LancamentosModule,
+    SegurancaModule,
     AppRoutingModule
   ],
   providers: [],
