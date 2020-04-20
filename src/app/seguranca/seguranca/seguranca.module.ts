@@ -8,8 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { SegurancaRoutingModule } from '../seguranca-routing.module';
 
 import { SharedModule } from './../../shared/shared.module';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Http, RequestOptions, HttpModule } from '@angular/http';
 
-
+export function authHttServiceFactory(http: Http, options: RequestOptions){
+  return new AuthHttp(new AuthConfig(), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -21,7 +25,15 @@ import { SharedModule } from './../../shared/shared.module';
     ButtonModule,
     FormsModule,
     SegurancaRoutingModule,
-    SharedModule
+    SharedModule,
+    HttpModule
+  ],
+  providers: [
+    {
+      provide: AuthHttp,
+      useFactory: authHttServiceFactory,
+      deps: [Http, RequestOptions]
+    }
   ],
   exports: []
 })
