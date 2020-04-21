@@ -20,8 +20,12 @@ export class NavbarComponent implements OnInit {
     this.usuarioLogado = this.authService.jwtPayload?.nome;
   }
 
-  public get authenticationService(){
+  get authenticationService(){
     return this.authService;
+  }
+
+  criarNovoAccessToken(){
+    this.authService.obterNovoAccesToken();
   }
 
 }
