@@ -2,7 +2,7 @@ import { Lancamento } from './../core/model';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { AuthHttp } from 'angular2-jwt';
-import { Http, URLSearchParams } from '@angular/http';
+import { URLSearchParams } from '@angular/http';
 
 export class LancamentoFiltro {
   descricao: string;
@@ -44,9 +44,8 @@ export class LancamentoService {
     }
     return this.authHttp.get(`${this.lancamentosUrl}?resumo`, { search:  params } )
       .toPromise()
-      .then((response: any) => {
+      .then(response => {
         const lancamentos = response.json().content;
-
         const resultado = {
           lancamentos,
           total: response.json().totalElements

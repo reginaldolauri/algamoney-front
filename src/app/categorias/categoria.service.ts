@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { AuthHttp } from 'angular2-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,14 @@ export class CategoriaService {
   categoriasUrl = `http://localhost:8080/categorias`;
 
   constructor(
-    private http: HttpClient
+    private http: AuthHttp
   ) { }
 
   listaTodas(): Promise<any> {
-    const headers = new HttpHeaders({
-      'Content-Type':  'application/json',
-      Authorization: 'Basic YWRtaW5AYWxnYW1vbmV5LmNvbTphZG1pbg=='
-     });
-    return this.http.get(this.categoriasUrl, { headers })
+    return this.http.get(this.categoriasUrl)
             .toPromise()
             .then((response: any) => {
-              return response;
+              return response.json();
     });
   }
 }

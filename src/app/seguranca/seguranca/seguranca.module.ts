@@ -12,7 +12,12 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions, HttpModule } from '@angular/http';
 
 export function authHttServiceFactory(http: Http, options: RequestOptions){
-  return new AuthHttp(new AuthConfig(), http, options);
+  const config = new AuthConfig({
+    globalHeaders: [
+      {'Content-Type': 'application/json'}
+    ]
+  });
+  return new AuthHttp(config, http, options);
 }
 
 @NgModule({
