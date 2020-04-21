@@ -1,3 +1,4 @@
+import { JwtHelper } from 'angular2-jwt';
 import { AuthService } from './../../seguranca/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,12 +11,17 @@ export class NavbarComponent implements OnInit {
 
   exibindoMenu = false;
   usuarioLogado = '';
+
   constructor(
     private authService: AuthService
   ){}
 
   ngOnInit(): void {
     this.usuarioLogado = this.authService.jwtPayload?.nome;
+  }
+
+  public get authenticationService(){
+    return this.authService;
   }
 
 }
