@@ -1,5 +1,5 @@
 import { JwtHelper } from 'angular2-jwt';
-import { AuthService } from './../../seguranca/auth.service';
+import { AuthService } from '../../seguranca/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -22,10 +22,6 @@ export class NavbarComponent implements OnInit {
 
   get authenticationService(){
     return this.authService;
-  }
-
-  criarNovoAccessToken(){
-    this.authService.obterNovoAccesToken();
   }
 
 }

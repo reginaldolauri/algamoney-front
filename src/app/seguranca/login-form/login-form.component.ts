@@ -1,7 +1,7 @@
 import { Login } from './../../core/model';
 import { NgForm } from '@angular/forms';
 import { ErrorHandlerService } from './../../core/error-handler.service';
-import { AuthService } from './../auth.service';
+import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
