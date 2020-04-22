@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { LancamentoService, LancamentoFiltro } from './../lancamento.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api/public_api';
@@ -23,13 +24,17 @@ export class LancamentosPesquisaComponent implements OnInit {
     private toasty: ToastyService,
     private confimation: ConfirmationService,
     private errorHandler: ErrorHandlerService,
-    private tile: Title
+    private tile: Title,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
     this.tile.setTitle('Pesquisa de lançamentos');
   }
 
+  get auth(){
+    return this.authService;
+  }
   pesquisar(pagina = 0){
     this.filtro.pagina = pagina;
     this.lancamentoService.pesquisar(this.filtro)
