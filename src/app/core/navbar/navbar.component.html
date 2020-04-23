@@ -12,6 +12,6 @@
       *ngIf="authenticationService.temPermissao('ROLE_PESQUISAR_LANCAMENTO')"><a routerLink="/lancamentos">Lançamentos</a></li>
     <li class="navbar-menuitem" routerLinkActive="ativo"
     *ngIf="authenticationService.temPermissao('ROLE_PESQUISAR_LANCAMENTO')"><a routerLink="/pessoas">Pessoas</a></li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="#">Logout</a></li>
+    <li class="navbar-menuitem" routerLinkActive="ativo"><a (click)="logout()">Logout</a></li>
   </ul>
 </nav>

@@ -14,6 +14,7 @@ import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SharedModule } from './../shared/shared.module';
 import { AuthGuard } from './auth.guard';
+import { LogoutService } from './logout.service';
 
 export function authHttServiceFactory(auth: AuthService, errorHandler: ErrorHandlerService, http: Http, options: RequestOptions){
   const config = new AuthConfig({
@@ -44,7 +45,8 @@ export function authHttServiceFactory(auth: AuthService, errorHandler: ErrorHand
       useFactory: authHttServiceFactory,
       deps: [AuthService, ErrorHandlerService, Http, RequestOptions, ]
     },
-    AuthGuard
+    AuthGuard,
+    LogoutService
   ],
   exports: []
 })

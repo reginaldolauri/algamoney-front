@@ -1,6 +1,9 @@
-import { JwtHelper } from 'angular2-jwt';
+import { ToastyService } from 'ng2-toasty';
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { LogoutService } from './../../seguranca/logout.service';
 import { AuthService } from '../../seguranca/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +16,11 @@ export class NavbarComponent implements OnInit {
   usuarioLogado = '';
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private logoutService: LogoutService,
+    private errorHandler: ErrorHandlerService,
+    private router: Router,
+    private toasty: ToastyService
   ){}
 
   ngOnInit(): void {
@@ -24,4 +31,14 @@ export class NavbarComponent implements OnInit {
     return this.authService;
   }
 
+  logout(){
+    this.logoutService.logout()
+    .then(() => {
+      this.router.navigate(['/login']);
+      this.toasty.success('Usuário realizou o logout da aplicação com sucesso.');
+    })
+    .catch(erro => {
+      this.errorHandler.handle(erro);
+    });
+  }
 }
