@@ -12,6 +12,7 @@ import { MoneyHttp } from './money-http';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SharedModule } from './../shared/shared.module';
+import { AuthGuard } from './auth.guard';
 
 export function authHttServiceFactory(auth: AuthService, http: Http, options: RequestOptions){
   const config = new AuthConfig({
@@ -41,7 +42,8 @@ export function authHttServiceFactory(auth: AuthService, http: Http, options: Re
       provide: AuthHttp,
       useFactory: authHttServiceFactory,
       deps: [AuthService, Http, RequestOptions]
-    }
+    },
+    AuthGuard
   ],
   exports: []
 })
