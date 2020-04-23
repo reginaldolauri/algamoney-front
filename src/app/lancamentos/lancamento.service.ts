@@ -51,6 +51,10 @@ export class LancamentoService {
           total: response.json().totalElements
         };
         return resultado;
+      })
+      .catch(erro => {
+        console.log(erro);
+
       });
   }
 

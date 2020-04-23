@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 
@@ -6,10 +7,13 @@ import { Observable } from 'rxjs/Observable';
 
 import { AuthService } from './auth.service';
 
+export class NotAuthenticatedError{}
+
 export class MoneyHttp extends AuthHttp {
 
   constructor(
     private auth: AuthService,
+    private errorHandler: ErrorHandlerService,
     options: AuthConfig,
     http: Http,
     defOpts?: RequestOptions
@@ -51,9 +55,16 @@ export class MoneyHttp extends AuthHttp {
 
       const chamadaNovoAccessToken = this.auth.obterNovoAccessToken()
         .then(() => {
+          if (this.auth.isAccessTokenInvalido()) {
+            throw new NotAuthenticatedError();
+          }
           return fn().toPromise();
         })
-        .catch(erro => console.log(erro));
+        .catch(
+          erro => {
+                this.errorHandler.handle(erro);
+            }
+          );
 
       return Observable.fromPromise(chamadaNovoAccessToken);
     } else {

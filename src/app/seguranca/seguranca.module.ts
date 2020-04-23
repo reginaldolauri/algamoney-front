@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from 'src/app/core/error-handler.service';
 import { Http, RequestOptions} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -14,13 +15,13 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SharedModule } from './../shared/shared.module';
 import { AuthGuard } from './auth.guard';
 
-export function authHttServiceFactory(auth: AuthService, http: Http, options: RequestOptions){
+export function authHttServiceFactory(auth: AuthService, errorHandler: ErrorHandlerService, http: Http, options: RequestOptions){
   const config = new AuthConfig({
     globalHeaders: [
       {'Content-Type': 'application/json'}
     ]
   });
-  return new MoneyHttp(auth, config, http, options);
+  return new MoneyHttp(auth, errorHandler, config, http, options);
 }
 
 @NgModule({
@@ -41,7 +42,7 @@ export function authHttServiceFactory(auth: AuthService, http: Http, options: Re
     {
       provide: AuthHttp,
       useFactory: authHttServiceFactory,
-      deps: [AuthService, Http, RequestOptions]
+      deps: [AuthService, ErrorHandlerService, Http, RequestOptions, ]
     },
     AuthGuard
   ],
