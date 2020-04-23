@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
 
@@ -6,11 +7,13 @@ import { AuthHttp } from 'angular2-jwt';
 })
 export class CategoriaService {
 
-  categoriasUrl = `http://localhost:8080/categorias`;
+  categoriasUrl: string;
 
   constructor(
     private http: AuthHttp
-  ) { }
+  ) {
+    this.categoriasUrl = `${environment.apiUrl}/categorias`;
+  }
 
   listaTodas(): Promise<any> {
     return this.http.get(this.categoriasUrl)

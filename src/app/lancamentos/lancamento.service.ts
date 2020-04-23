@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { AuthHttp } from 'angular2-jwt';
 import { URLSearchParams } from '@angular/http';
+import { environment } from 'src/environments/environment';
 
 export class LancamentoFiltro {
   descricao: string;
@@ -17,11 +18,13 @@ export class LancamentoFiltro {
 })
 export class LancamentoService {
 
-  lancamentosUrl = 'http://localhost:8080/lancamentos';
+  lancamentosUrl: string;
 
   constructor(
     private authHttp: AuthHttp
-  ) { }
+  ) {
+    this.lancamentosUrl = `${environment.apiUrl}/lancamentos`;
+   }
 
   pesquisar(filtro: LancamentoFiltro): Promise<any> {
     const params = new URLSearchParams();
