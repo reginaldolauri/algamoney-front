@@ -18,7 +18,8 @@ export class ErrorHandlerService {
   handle(errorResponse: any) {
     let msg: string;
 
-    if (!this.sessaoExpirada) {
+    if (!this.sessaoExpirada
+        || errorResponse instanceof NotAuthenticatedError) {
       if (typeof errorResponse === 'string') {
         msg = errorResponse;
       }  else if (errorResponse instanceof NotAuthenticatedError){
